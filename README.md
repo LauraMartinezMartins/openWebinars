@@ -19,3 +19,5 @@ Encapsulación REACT: nuestra unidad lógica será el componente. Tendra logica,
 
 Diseño atómico: habla de entidades con más contenido, nos dice que cada interfaz puede dividirse en combinaciones de elementos. La unidad más basica es el atomo. Ejemplo de atomo: boton de busqueda, texto...
 Cuando los combinamos, es una molecula más sotisficada. Podría incluirse en un organismo por ejemplo, la cabecera. La combinación de organismos da lugar al template, que es una estructura preparada para ser instanciada en diferentes páginas. Finalmente, todos los elementos combinados resultan una página. 
+
+Empezamos con la diferencia entre las variables let, var y const. Seguimos con las funciones arrow (lambdas) y los strings. Explicación de los destructores de los que se pueden sustraer una clave de ellos y se puede cambiar su valor. Herencia e imports.
