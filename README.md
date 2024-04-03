@@ -28,3 +28,15 @@ Anatomía:
 
 Ecosistema:
 En este ecosistema, en el centro se encuentra REACT para tratar el renderizado. La libreria mas basica es la encargada de pintar como React Dom. Una herramienta muy util en aplicaciones tener un enroutado, teniendo las páginas que se puede acceder, como React Router. Estas piezas son herramientas independientes. La gestión del estado centralizado que se trata de gestión de datos de la aplicación de forma más sencilla, se puede encargar de esto Redux. Para la gestión de formularios hay bastante variedad de librerías, el más comun es Formik. Hay tests que la herramienta que se propone es Jest. El empaquetado es necesario ya que las estructuras son complejas, para que el navegador las pueda ejecutar de mejor forma, un ejemplo sería Parcel. En Angular las funcionalidades ya vienen más cerradas. 
+
+APLICACIÓN REACT
+Veremos varios puntos:
+-Dependencias
+-Empaquetado
+-Estilo de código
+-Herramientas desarrollo y debug de apps
+
+Dependencias:
+Aportan funcionalidad de caracter general (librerias). Nuestro codigo va a ser Javascript y las dependencias iran dentro de node_modules. El entorno donde se ejecutan las apps solían ser los navegadores, hace tiempo bower se encargaba de las dependencias, luego ha ido cambiando y se ha unificado las dependencias en cliente y servidor y se usa npm.  
+Para poder empezar el proyecto,se deben seguir estos pasos:
+* Instalar NodeJS ...
