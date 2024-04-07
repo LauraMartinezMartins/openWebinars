@@ -28,6 +28,7 @@ Anatomía:
 
 Ecosistema:
 En este ecosistema, en el centro se encuentra REACT para tratar el renderizado. La libreria mas basica es la encargada de pintar como React Dom. Una herramienta muy util en aplicaciones tener un enroutado, teniendo las páginas que se puede acceder, como React Router. Estas piezas son herramientas independientes. La gestión del estado centralizado que se trata de gestión de datos de la aplicación de forma más sencilla, se puede encargar de esto Redux. Para la gestión de formularios hay bastante variedad de librerías, el más comun es Formik. Hay tests que la herramienta que se propone es Jest. El empaquetado es necesario ya que las estructuras son complejas, para que el navegador las pueda ejecutar de mejor forma, un ejemplo sería Parcel. En Angular las funcionalidades ya vienen más cerradas. 
+He subido el ejercicio en el proyecto con la web antigua de fuentes de Google. (por subir)
 
 APLICACIÓN REACT
 Veremos varios puntos:
@@ -39,4 +40,50 @@ Veremos varios puntos:
 Dependencias:
 Aportan funcionalidad de caracter general (librerias). Nuestro codigo va a ser Javascript y las dependencias iran dentro de node_modules. El entorno donde se ejecutan las apps solían ser los navegadores, hace tiempo bower se encargaba de las dependencias, luego ha ido cambiando y se ha unificado las dependencias en cliente y servidor y se usa npm.  
 Para poder empezar el proyecto,se deben seguir estos pasos:
-* Instalar NodeJS ...
+* Instalar NodeJS (he instalado desde la página)
+* Comprobar versión npm.
+* Crear e ir a una nueva carpeta.
+* Empezar un proyecto.
+Se realizará por consola, según los pasos en el video instalandose asi el json.
+Instalamos la dependencia, que con save ya sepa que necesita react.
+Con esto, la salida de consola será la siguiente:
+
+**E:\REACT\wishlist>npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+Press ^C at any time to quit.
+test command:
+git repository:
+keywords:
+author:
+license: (ISC)
+About to write to E:\REACT\wishlist\package.json:
+{
+  "name": "wishlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+Is this OK? (yes)
+E:\REACT\wishlist>npm install --save react
+added 3 packages, and audited 4 packages in 1s
+found 0 vulnerabilities**
+
+ Empaquetado:
+Estas herramientas se encargan dado un codigo, lo procesa para que el navegador pueda entender. Ahora vamos a instalar el builder llamado Parcel. 
+ * Se instala Parcel
+ * Se crea index.html
+Esto lo colocara dentro de node-modules.
+ Instalamos primero yarn, y ejecutamos el comando con yarn.
+Lo siguiente, en nuestro json definimos un script, que nos servira para realizar tareas en nuestro flujo. Añadimos en el json el start donde estan los scripts.
+Ejecutamos npm start y ya se visualiza en el navegador el html.
+
