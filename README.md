@@ -48,7 +48,7 @@ Se realizará por consola, según los pasos en el video instalandose asi el json
 Instalamos la dependencia, que con save ya sepa que necesita react.
 Con esto, la salida de consola será la siguiente:
 
-**E:\REACT\wishlist>npm init
+''E:\REACT\wishlist>npm init
 This utility will walk you through creating a package.json file.
 It only covers the most common items, and tries to guess sensible defaults.
 See `npm help init` for definitive documentation on these fields
@@ -76,7 +76,7 @@ About to write to E:\REACT\wishlist\package.json:
 Is this OK? (yes)
 E:\REACT\wishlist>npm install --save react
 added 3 packages, and audited 4 packages in 1s
-found 0 vulnerabilities**
+found 0 vulnerabilities''
 
  Empaquetado:
 Estas herramientas se encargan dado un codigo, lo procesa para que el navegador pueda entender. Ahora vamos a instalar el builder llamado Parcel. 
@@ -86,4 +86,99 @@ Esto lo colocara dentro de node-modules.
  Instalamos primero yarn, y ejecutamos el comando con yarn.
 Lo siguiente, en nuestro json definimos un script, que nos servira para realizar tareas en nuestro flujo. Añadimos en el json el start donde estan los scripts.
 Ejecutamos npm start y ya se visualiza en el navegador el html.
+Instalamos React DOM y empezamos a trabajar con REACT. 
+React y React DOM ambas exportan un objeto. Dentro, vemos codigo parecido a html pero no lo es, es lengguaje jsx. El render como primer parametro recibe el jsx y como segundo el parametro nuestra aplicación. La referencia la extraemos por el id.
+Creamos el index.jsx e importamos React y React DOM.
+(Como aporte, pongo la pagina que pone en los comentarios de las extensiones para React: https://dev.to/narendersaini32/5-vscode-extensions-for-react-developers-ipk)
+   
+En el archivo index.jsx: 
+'import React from "react";
+import ReactDom from 'react-dom';
+ReactDom.render(<div> Hola</div>),document.getElementById("root");'
+
+En el archivo index.html:
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Wishlist</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="index.jsx"></script>
+</body>
+</html>'
+
+Estilo del código:
+* Estructura de carpetas.
+* Linting: enfocado a herramientas que revisan el codigo que escribimos y que lo comprueban.
+* Formato: tabulaciones, espacios, salto de línea, etc.
+
+Partimos de la carpeta base, en la raiz estara el fichero package-json y tambien todos los ficheros de configuración. Hay una división de dos carpetas, donde se coloca el codigo fuente (src) y dist que es la compilación del codigo. Por lo general no entramos en dist. Como tercera carpeta puede haber las dependencias. En src podemos dividir el codigo en: folder by type (agrupa segun el tipo de fichero), se ha extendido de forma tradicional, sin embargo tiene mas sentido usar una estructura carpeta agrupando codigo segun su relacion entre si. 
+La estructura del codigo depende de la embergadura del proyecto. 
+
+Linting
+Se encarga de revisar el codigo y avisar en caso de que existan errores. Dado que escribimos javascript, ESLint es la herramienta que se encarga de hacer la revisión de codigo. Podemos inicializar la revision de codigo con ESLint. 
+'E:\REACT\wishlist>npm install -g eslint
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'eslint@9.0.0',
+npm WARN EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+npm WARN EBADENGINE   current: { node: 'v19.9.0', npm: '9.6.3' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@eslint/eslintrc@3.0.2',
+npm WARN EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+npm WARN EBADENGINE   current: { node: 'v19.9.0', npm: '9.6.3' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@eslint/js@9.0.0',
+npm WARN EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+npm WARN EBADENGINE   current: { node: 'v19.9.0', npm: '9.6.3' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'eslint-scope@8.0.1',
+npm WARN EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+npm WARN EBADENGINE   current: { node: 'v19.9.0', npm: '9.6.3' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'eslint-visitor-keys@4.0.0',
+npm WARN EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+npm WARN EBADENGINE   current: { node: 'v19.9.0', npm: '9.6.3' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'espree@10.0.1',
+npm WARN EBADENGINE   required: { node: '^18.18.0 || ^20.9.0 || >=21.1.0' },
+npm WARN EBADENGINE   current: { node: 'v19.9.0', npm: '9.6.3' }
+npm WARN EBADENGINE }
+
+added 89 packages in 4s
+21 packages are looking for funding
+  run `npm fund` for details
+
+E:\REACT\wishlist>'
+
+Ejecutamos el comando npm install -g eslint. En mi caso, el init me fue directamente.
+'E:\REACT\wishlist>eslint --init
+You can also run this command directly using 'npm init @eslint/config'.
+√ How would you like to use ESLint? · problems
+√ What type of modules does your project use? · esm
+√ Which framework does your project use? · react
+√ Does your project use TypeScript? · javascript
+√ Where does your code run? · browser
+The config that you've selected requires the following dependencies:
+
+eslint, globals, @eslint/js, eslint-plugin-react
+√ Would you like to install them now? · No / Yes
+Successfully created E:\REACT\wishlist\eslint.config.mjs file.
+You will need to install the dependencies yourself.
+
+E:\REACT\wishlist>'
+Se creará un fichero en el proyecto, con caracteristicas por defecto. En rules podremos configurar la revision de forma mas concreta. 
+Ejecutamos el comando 'yarn add --dev eslint-config-airbnb'. En mi caso lo instalo todo bien. 
+Metemos los plugin con: 'yarn add --dev eslint-plugin-react' y 'yarn add --dev eslint-plugin-import'.
+
+En el commit podemos configurar el linting o en el despliegue. 
+
+
+
 
