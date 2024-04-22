@@ -268,6 +268,7 @@ El switch es el básico que evalua el contenido de alguna variable. De una forma
 Loops (bucles):
 
 .map()= es un metodo de javascript, que recorre el array devolviendo otro array con los elementos modificados del primer array. Transforma elementos de una array a elementos Jsx. 
+
 .filter()= produce una seleccion de elementos del primer array que cumplen cierta condicion. 
 
 Es mejor filtrar mejor antes.
