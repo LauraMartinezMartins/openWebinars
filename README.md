@@ -301,12 +301,12 @@ Ciclo de vida componente:
 - Puede cambiar su estado recurrentemente, para finalmente desmontarse.
 
 Se produce la llamada al constructor, antes de nada, y luego tres elementos básicos.
-  componentDidMount()-> se lanza cuando se ha montado el componente.
-  render()-> se volvera realizar despues de los props y seteado el estado
-  componentWillUnmount()->se lanza cuando finaliza la vida del componente
-  componentDidUpdate()->se lanza tras el update
-  shouldComponentUpdate()->se busca si vale la pena un nuevo ciclo de renderizado.
-  getDerivedStateFromProps()->actualiza el estado interno a medida de las propiedades activas.
+* componentDidMount()-> se lanza cuando se ha montado el componente.
+* render()-> se volvera realizar despues de los props y seteado el estado
+* componentWillUnmount()->se lanza cuando finaliza la vida del componente
+* componentDidUpdate()->se lanza tras el update
+* shouldComponentUpdate()->se busca si vale la pena un nuevo ciclo de renderizado.
+* getDerivedStateFromProps()->actualiza el estado interno a medida de las propiedades activas.
 
 useEffect() habilita a los componentes funcionales su ciclo de vida. 
   
