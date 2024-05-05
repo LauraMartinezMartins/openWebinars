@@ -275,3 +275,38 @@ Es mejor filtrar mejor antes.
 
 El uso de claves es muy importante al renderizar arrays con React, para identificar cada uno de los elementos. Si pinta un null, no pinta absolutamente nada. 
 Para hacer el ejercicio, he creado otro repositorio Whislist. 
+
+Ejercicio subido en otro repositorio. 
+
+Propiedades de los componentes:
+
+Una función tiene muchas similitudes con un componente de REACT. Una funcion pura es aquella que su respuesta se condiciona por sus parametros de entrada. 
+- Es determinista
+- Facil de simular
+- Facil de optimizar
+
+Intentamos que el componente sea una función pura. En el jsx podemos acceder a las propiedades. En las clases. las propiedades se incluyen en el this, cuando heredan de Component.
+
+Prop Types:
+Especifica cada una de las prop que tipo deberian tener, y si usamos un componente de forma incorrecta veremos errores notificando el mal uso. Con estas propTypes podemos definir los tipos que reciben el componente en REACT. De la misma forma, con required. Podemos poner en los componentes, propiedades por defecto. 
+
+Estado: 
+El resultado del Jsx puede estar condicionado por el estado del componente. Se lanza un nuevo render cuando se cambia las props y el estado. El estado se puede cambiar por interacciones del usuario por la interfaz (click, change...). La forma mas sencilla es mediante el hook de useState. Habilita la gestión del estado.Nos facilita las modificaciones de variables de estado. 
+
+Ventajas en delegar el estado en el padre: 
+Los hijos dejan de tener la responsabilidad de portar con los props. Modificamos los estados de los hijos con los callbacks. 
+
+Ciclo de vida componente:
+- Si recibe nuevas propiedades, habra nuevos eventos en el ciclo de vida del componente.
+- Puede cambiar su estado recurrentemente, para finalmente desmontarse.
+
+Se produce la llamada al constructor, antes de nada, y luego tres elementos básicos.
+  componentDidMount()-> se lanza cuando se ha montado el componente.
+  render()-> se volvera realizar despues de los props y seteado el estado
+  componentWillUnmount()->se lanza cuando finaliza la vida del componente
+  componentDidUpdate()->se lanza tras el update
+  shouldComponentUpdate()->se busca si vale la pena un nuevo ciclo de renderizado.
+  getDerivedStateFromProps()->actualiza el estado interno a medida de las propiedades activas.
+
+useEffect() habilita a los componentes funcionales su ciclo de vida. 
+  
