@@ -368,7 +368,61 @@ Creacion de pseudo-interceptores
 Un interceptor se introduce en una peticion que realiza un proceso, que procesa la respuesta. El metodo request es coger el interceptor que recibe la respuesta, y gestiona segun el comportamiento de la respuesta. Fetch siempre avanza. 
 
 Ejercicio: 
-create-react-app nos da un monton de plantillas ademas. Creación del proyecto: 
+create-react-app nos da un monton de plantillas ademas. 
+Creación del proyecto: 
 
-![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/515330c5-0d70-4494-9235-3b253e2e7043)
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/deb1242c-e635-46fb-94f8-0c9129c79244)
 
+
+Podemos tener ficheros por tipo o por caracteristica. Una pagina es un contenedor de componentes. 
+Normalmente se ordena por tipo, es mas facil de esta forma saber que rol tiene. 
+
+Todos los servicios heredan de los servicios base. La idea del request que sea mas generico, que es lo mejor de la aplicacion. El post y get deben ser interfaces sencillas. 
+
+Simplificamos la respuesta para que encaje con el front-end. 
+
+- Enrutamiento en una SPA
+- Introduciendo react-router
+- Switches y rutas react-router
+- Navegacion basica por la aplicacion
+
+Enrutamiento en una SPA
+
+En verdad es un falso enrutador que no recarga la pagina, por lo que en verdad no hace la navegación. Si queremos la direccion de otra pagina, ocultara la primera pagina y mostrara la segunda. Todo esta simulado. 
+
+React-router
+
+Es una libreria por REACT, que se integra con otras librerias, que tiene conexion con Redux que se comparten historial y conexion. Es el mas usado. 
+
+Tenemos un switch que nos deja hacer el enroutamiento de distintas paginas de forma optima. 
+
+''
+<Switch>
+    <Route path="/pagina1">
+        <Pagina1 ></Pagina1>
+    </Route>
+    <Route path="/pagina2">
+        <Pagina2 ></Pagina2>
+    </Route>
+    <Route path="/pagina3">
+        <Pagina3 ></Pagina3>
+    </Route>
+</Switch>
+''
+Compara la barra de navegaciones con los paths. El router tiene prioridad, asi que lo hara desde arriba hacia abajo. 
+
+Tambien existe la propiedad exact, que solo hace match si es exactamente el path. Podemos anidar switches, por lo que podemos tener routing dentro de otro routing. 
+
+Navegacion basica por la aplicacion
+La forma más básica es mediante Link, de forma que creamos un enlace que nos permite ir a cualquier localizacion de nuestro router. Por lo que solo cambia la url y recarga la pagina. 
+
+El link tiene un path, search (parametros en url), hash (como search pero con hash) y un estado (se inyecta como una propiedad). 
+
+Podemos usar NavLink para saber cuando esta seleccionado por ejemplo.
+
+- Mavegacion en una aplicacion web
+- Uso historial de navegacion
+- React router e historial
+- Navegacion programatica en react router
+
+  
