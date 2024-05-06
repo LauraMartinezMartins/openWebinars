@@ -1,4 +1,4 @@
-# REACT
+# REACT PRINCIPIANTE
 Presentación y descripción de lo que es en si REACT, que es una librería de JavaScript.
 Fundamentos básicos en cuatro módulos: 
 - Diseño: como estructurar la interfaz, como afecta el cliente al servidor y como opera en el servidor esta tecnologia.
@@ -310,3 +310,65 @@ Se produce la llamada al constructor, antes de nada, y luego tres elementos bás
 
 useEffect() habilita a los componentes funcionales su ciclo de vida. 
   
+
+# REACT INTERMEDIO
+- Procesamiento y renderacion clasica de la web
+- Aplicacion de pagina unica o SPA
+- Ajax
+- XMLHttpRequest
+- Api de Fetch
+
+ Procesamiento y renderacion clasica de la web:
+Tenemos un servidor estático, luego una aplicacion a nivel de servidor y luego un usuario que hace una peticion al servidor. Las desventajas de este modelo es que el procesamiento recae en el servidor, por lo que si necesita muchos recursos no es lo ideal. 
+
+SPA 
+Es un conjunto de Js y de html el servidor solo ofrece unos cuantos recursos basicos necesarios. Gracias al cache, el servidor no necesita recargar de nuevo los recursos. Es interesante en servidores pequeños. Surgen los SPA para que el cambio de la pagina no se tenga que recargar completamente. Ajax es un conjunto de tecnologias que recupera datos del servidor, al nivel del navegador y cargarlos al html. Producimos un html y lo inyectamos a la web. 
+
+XMLXttpRequest
+Nos permite hacer peticiones al servidor y procesarlas. La respuesta siempre mas sencilla es la del html. Ha quedado anticuado.
+
+Api de Fetch
+Es una funcion que permite hacer lo de la clase anterior pero con modificaciones: la respuesta sera en Json. Puede trabajar la respuesta de forma mas analizada. Devuelve promesas (son objetos de js que nos devuelven finalizacion de un proceso) que se resuelve de forma asincrona. Podemos hacer un catch que recoja las excepciones u errores (como el 400). 
+
+- Como realizar un GET usando Fetch
+- Como realizar un POST usando Fetch
+- Objeto init: Las operaciones de la petición
+- Cabeceras y respuesta de la peticion
+
+Realizar GET con Fetch
+Cualquier GET se consta de una cabecera, peticion y una serie de parametros. Se realizan de forma asincrona y siempre devuelve una promesa. 
+
+Realizar POST con Fetch
+El comportamiento es de un formulario basico, consta de lo mismo que el get añadiendo el body, que nos permite mandar archivos binarios, arrays... El post no tienen tamaño limitado. El body siempre tiene que ser una cadena. Hay que indicar la cabecera en Json para que el servidor lo "entienda". 
+
+Objeto init:
+Podemos pasarle una serie de atributos que modificar el comportamiento de Fetch, que puede ser total. 
+
+Cabeceras y respuesta de la peticion:
+Las cabeceras nos permite comunicar al servidor el tipo de contenido, la politica de cache e incluso propiedades. Tambien se introduce headers que nos permite funciones append(),entries() o has(). 
+
+- ¿Que es servicio front-end?
+- Modelos entidades
+- Definiendo servicios
+
+¿Que es servicio en front-end?
+Los servicios del back end son un punto de consumo para el front end, de forma controlada, por lo que accede a la base de datos manteniendo al maximo la seguridad. Los servicios front end son un serivicio intermedio entre back end y la aplicación, que coge informacion del back end y la transforma en informacion util en la aplicacion. 
+
+Modelo de entidades
+Un servicio debe deovlver un modelo, que es una representacion abstracta de una entidad. En front end, los modelos varian, pueden ser una abstraccion de propiedades y metodos para renderizar. DTO es un data tranfer object, que se utiliza para transferencia.  Hay un metodo toDTO que podemos crear para tranformar el modelo cuando sea necesario. 
+Un servicio es un contenedor de una llamada a Fetch, que los parametros es una inyeccion. El body podemos pasarlo a json directamente. Es importante invertir tiempo en el GET y POST.  
+
+- Uso modelos en servicios
+- Creacion de pseudo-interceptores
+
+Uso de modelos en servicios:
+Podemos hacer un get e inyectar una url en la api, que puede responder con promesas. Podemos incluso crear nuevos objetos con el post y procesar la respuesta. Es una solucion muy util para crear o modificar objetos.
+
+Creacion de pseudo-interceptores
+Un interceptor se introduce en una peticion que realiza un proceso, que procesa la respuesta. El metodo request es coger el interceptor que recibe la respuesta, y gestiona segun el comportamiento de la respuesta. Fetch siempre avanza. 
+
+Ejercicio: 
+create-react-app nos da un monton de plantillas ademas. Creación del proyecto: 
+
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/515330c5-0d70-4494-9235-3b253e2e7043)
+
