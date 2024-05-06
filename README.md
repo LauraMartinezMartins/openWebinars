@@ -396,7 +396,7 @@ Es una libreria por REACT, que se integra con otras librerias, que tiene conexio
 
 Tenemos un switch que nos deja hacer el enroutamiento de distintas paginas de forma optima. 
 
-''
+'''
 <Switch>
     <Route path="/pagina1">
         <Pagina1 ></Pagina1>
@@ -408,7 +408,7 @@ Tenemos un switch que nos deja hacer el enroutamiento de distintas paginas de fo
         <Pagina3 ></Pagina3>
     </Route>
 </Switch>
-''
+'''
 Compara la barra de navegaciones con los paths. El router tiene prioridad, asi que lo hara desde arriba hacia abajo. 
 
 Tambien existe la propiedad exact, que solo hace match si es exactamente el path. Podemos anidar switches, por lo que podemos tener routing dentro de otro routing. 
