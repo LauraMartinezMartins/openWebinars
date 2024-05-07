@@ -418,9 +418,10 @@ El link tiene un path, search (parametros en url), hash (como search pero con ha
 
 Podemos usar NavLink para saber cuando esta seleccionado por ejemplo.
 
-- Mavegacion en una aplicacion web
+- Navegacion en una aplicacion web
 - Uso historial de navegacion
 - React router e historial
 - Navegacion programatica en react router
 
-  
+Navegacion en una aplicacion web
+
