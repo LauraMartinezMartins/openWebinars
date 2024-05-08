@@ -425,3 +425,98 @@ Podemos usar NavLink para saber cuando esta seleccionado por ejemplo.
 
 Navegacion en una aplicacion web
 
+Funciona por enroutamiento: muestra y oculta las rutas, y coincide el nombre de la ruta con expresion regex que selecciona texto.
+Navegacion: permite mandar y recuperar parametros search, hash.
+Gestion del historial: permite volver en la pagina. 
+
+Uso historial de navegacion
+
+Dispone el navegador una serie de metodos para navegar por el historial con History.Podremos hacer acciones frecuentes como añadir y modificarlo. Con back y go.
+
+Los states podemos desplazarnos a un punto dado y generar una entrada al historial, esto se hace con pushState. Se añade un estado, titulo y una ruta. replaceState nos permite reemplazar la entrada. 
+
+Cada cambio de estado lanza un evento y cambia la ruta. 
+
+React router e historial
+
+BrowserRouter implementa gestion de la API History. Link funciona como history.pushState y Redirect como history.replaceState. Estos cambios esta gestionado por history. 
+
+Navegacion programatica en react router
+
+Desplazarnos de una pagina a otra sin que el usuario tenga que pulsar un boton, con Link o NavLink. El hook useHistory da acceso al historial del componente. 
+
+Portales en REACT
+- Problema de jerarquia
+- Portal como solucion
+- Propagar eventos
+
+ Problema de jerarquía
+ Un modal siempre deberia estar arriba y tener mas cercania a la pantalla y que la pagina pase caracteristicas al modal. El portal nos permite crear acceso a un componente superior de informacion a un componente inferior. 
+
+ Propagar eventos en portales
+ Se comporta como un componente REACT norma. Si ocurre un click, se podra capturar con el modal. 
+
+ - Origen HOC
+ - HOC para preocupaciones transversales
+ - Uso de los HOC
+ - Convenciones y consideraciones
+
+Origen HOC
+
+Basados en funciones de alto orden y HOF en funciones que devuelven funciones. Ejemplos podria ser debounce o throttling, por tanto HOC es un componente que encapsula otros y devuelve uno nuevo como funcion. 
+
+HOC para preocupaciones transversales
+
+Estas funcionalidad pueden afectar otras partes de la app llamadas preocupaciones transversales, que son la base de los aspectos en programacion orientada a aspectos. Se solucionaban con mixins. 
+
+Uso de los HOC
+
+Un HOC puede servbir para introducir propiedades comunes, tambien para los estados compartidos. Casos frecuentes con loaders, autenticaciones..
+
+Convenciones y consideraciones
+Con la composicion podemos encadenar HOCs y acumular las logicas agregadas. Los HOC no deberían de afectar al funcionamiento del componente. 
+
+- Uso de los render props
+- Render props para preocupaciones transversales
+- Ejemplo de render props
+- Convenciones y consideraciones
+
+Uso de los render props
+
+El componente representa un proveedor, pero su renderización es fija, por lo que su reusabilidad es minima. Se desliga la logica con render props. 
+
+Render props para preocupaciones transversales
+
+También pueden ocuparse de las preocupaciones transversales. La solución seria de ir arriba hacia abajo en lugar de al reves. Las HOCS y render props se complementan. 
+
+- Componentes funcionales y estado
+- Hooks básicos
+- Ciclo de vida con Hooks
+
+Componentes funcionales y estado
+
+Antes, los componentes de clase eran los únicos que tenían estado. Los hooks introducen funcionalidades de estado y ciclo de vida y su funcionalidad es similar a la de un componente de clase. 
+
+Hook básicos
+
+* Hook de estado: useState nos permite conservar un estado memorizado y modificable mediante una función setter devuelta. La variable puede guardar cualquier valor, y podemos crear cuantas nuevas variables de estado necesitemos
+* Hook de efecto: realiza cambios adicionales relacionados después de realizarse una renderización. Ejecuta una funcion cuando una variable de estado o props cambia. Si devolvemos una función dentro del callback a ejecutar esta funcionará como función de saneamiento
+* Hook de contexto: permite acceso de lectura al valor actual de dicho contexto
+
+Ciclo de vida
+
+Los componentes funcionales pueden sustituir también el ciclo de vida de los de clase. La función devuelta por el primer hook realiza la función del componentWillUnmount
+
+- La cascada de props
+- Comunicación horizontal del estado
+- Soluciones para centralizar
+
+La cascada de props
+El paso del estado de un componente a otro se realiza verticalmente y hacia abajo por cascada. El uso de callbacks en la cascada nos permite subir el estado de un componente inferior a otro superior
+
+Comunicación horizontal del estado
+En algunos casos el ascenso del estado es insuficiente para lograr una comunicación entre componentes
+
+Soluciones para centralizar
+
+El navegador pone a nuestra disposición soluciones razonables para aplicaciones con una comunicación leve como cookies y localStorage. También es posible encontrar soluciones específicas para la estructura de nuestra app como Redux o Flux
