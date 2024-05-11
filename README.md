@@ -621,7 +621,185 @@ La capacidad para crear todas las funciones manejadoras de ciclo de vida que que
 Usamos un arrow para acceder al contexto de React. El ciclo de vida referenciado en el interior del closure se unirá al resto de manejadores de ciclo de vida referenciados en el componente donde lo importemos. En el return de nuestros Hooks podremos devolver cualquier número de propiedades de estado o incluso setters y funciones.
 
 
+Introducción a Redux
+
+- El estado centralizado
+- Patrón Redux
+- Redux con react-redux
+
+Patrón Redux
+
+El estado de las aplicaciones Redux es de sólo lectura y cambiarlo depende de seguir el flujo interno. Los cambios en el estado se realizan con funciones puras. 
+
+Redux con react-redux
+
+Versión extensible, optimizada y encapsulada que nos permite introducir el patrón de forma rápida y sencilla en cualquier app. 
+
+Selectores de porciones del estado
+
+- Configuración del store
+- Porciones de reductores
+- Conectando y usando porciones
+
+Configuración del store
+
+Usamos la función configureStore. 
+
+Porciones de reductores
+
+Está orientada a crear una mayor separación conceptual, no técnica. Cada porción define unos reductores propios y un estado inicial. 
+
+Conectando y usando porciones
+
+Podemos conectar cualquier número de porciones al reductor general de nuestra store, identificándolas con una clave en el objeto
+
+Middlewares y debug del store
+
+- ¿Que es un middleware?
+- Aproximaciones para Redux
+- Solución final
+
+¿Qué es un middleware?
+
+Es un código que se ejecuta entre la solicitud y la respuesta del framework. Su objetivo es permitir registrar en el log
+las acciones y los cambios de estado. 
+
+Solución final
+
+Utilizando un HOF podemos recibir el store y aplicar más de un middleware distinto sobre el store. Cualquier función que definamos como el HOF anterior podrá ser aplicado sobre la store usando la función applyMiddleware de Redux. 
+
+Acciones asincronas con redux thunk
+
+- La limitación de Redux
+- ¿Qué es un thunk?
+- Aplicando Redux thunk con slices
+
+La limitación de Redux
+
+No podemos actualizar el estado del store con el resultado de una acción asíncrona. Es necesario crear algún tipo de estrategia que sea compatible con realizar cambios en el store en reacción a peticiones asíncronas.
+
+¿Qué es un thunk?
+
+Llamamos thunk a cualquier función que sea devuelta por un HOF. La intención del uso de thunks en Redux es poder resolver la asincronicidad de forma ordenada y mantener sincronizada la store.
+
+Aplicando Redux thunk con slices
+
+La librería más usada es redux-thunk. Cuando queremos usarla con slices la documentación al respecto es más escasa.
+
+Gestion de errores en los componentes
+
+- Fuentes de error habituales
+- Captura con boundaries
+- React developer tools
+
+Fuentes de error habituales
+
+Aglutinar diferentes funcionalidades separadas en un mismo componente es una fuente importante de error y va en contra de la filosofía de componentización de React. Es mejor crear componente que aloje componentes que aislen funcionalidad y favorecer las props. Puede albergar cualquier número de componentes.
+
+El estado de React es inmutable. Tratar los cambios del estado como síncronos, setState en asincrona. 
+
+Captura con boundaries
+
+Para solucionar errores que puedan extenderse por el arbol, React crea unos componentes especiales llamados Error Boundaries o Limitadores de Errores. Un boundary es un componente que actúa como un try-catch. Los boundaries no capturan errores de manejadores de evento, código asíncrono, renderizado por servidor o errores en el propio boundary. 
+
+React developer tools
+
+Es una extensión de Chrome oficial que permite inspeccionar en tiempo real el árbol de React y editar propiedades y estado. Es instalable mediante npm i react-devtools. 
+
+![Sin título](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/c28d6484-20e9-49f5-aaf7-578a05880682)
+
+Modo estricto de REACT
+
+- Modo estricto en React
+- Ciclos de vida inseguros
+- Efectos secundarios inesperados
+
+Modo estricto en React
+
+Herramienta para destacar problemas potenciales en la aplicación. No produce ningún tipo de renderizacion por pantalla. Sólo funcionan en modo desarrollo, y se deshabilita en producción. 
+
+Ciclos de vida inseguro
+
+El modo estrico automáticamente habilita errores por consola para notificar el uso de bibliotecas de terceros.
+
+Efectos secundarios inesperados
+
+En la fase de render se llaman a los hooks de ciclo de vida: constructor,componentWillMount,etc. Los métodos de la fase de render pueden ser llamados múltiples veces y de forma automática por React. No se puede introducir ningún tipo de efecto secundario en estos métodos del ciclo de vida. 
+
+Introducción a Jest
+
+- ¿Qué es Jest?
+- Configurando Jest con React
+- Uso básico
+- Utilización de comparadores
+
+¿Qué es Jest?
+
+Framework basado en la simplicidad para realizar tests y pruebas. Ejecuta los tests en paralelo, realiza los tests por prioridad teniendo en cuenta los que fallaron previamente, y los ordena por tiempo de procesamiento. Cuenta con utilidades para analizar la cobertura del código así como realizar “mocks” de nuestros datos.
+
+Podemos instalarlo mediante npm install --save-dev jest. 
+
+'''
+E:\REACT\openWebinars\mi-app>npm install --save-dev jest
+
+added 62 packages, removed 17 packages, changed 7 packages, and audited 1603 packages in 36s
+
+262 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (2 moderate, 6 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+E:\REACT\openWebinars\mi-app>
+'''
+
+Utilización de comparadores
+
+Jest se basa en el uso de expectativas y comparadores. El comparador toBe() utiliza comprueba referencias para objetos pero no valores. toEqual() para objeto sea igual a clave a clave. 
+
+Testando el DOM generado por REACT
+
+- Introduciendo React test utils
+- Funciones importantes
+- Usando jest para los tests
+
+Introduciendo React test utils
+
+React test utils es una librería de funciones de apoyo para testing. Se instala con el comando npm install @testing-library/react --save-dev
+'''
+E:\REACT\openWebinars\mi-app>npm install @testing-library/react --save-dev
+npm WARN idealTree Removing dependencies.@testing-library/react in favor of devDependencies.@testing-library/react
+
+removed 13 packages, changed 1 package, and audited 1590 packages in 7s
+
+258 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (2 moderate, 6 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+E:\REACT\openWebinars\mi-app>
+
+'''
+
+Funciones importantes
+
+act()->renderiza componentes. 
+simulate-> simula la ejecución de un evento en un nodo del DOM.
 
 
+Minimizando el numero de renderizados
 
+- El renderizado en React
+- Usando shouldComponentUpdate
+- Virtualización de listas
 
+  
