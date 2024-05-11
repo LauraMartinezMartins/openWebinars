@@ -553,3 +553,75 @@ Centraliza si es necesario:
 
 La mayor parte de las veces sabremos que es necesaria alguna estrategia de centralización cuando encontremos comunicación horizontal.
 
+#REACT avanzado
+
+- Componentes funcionales vs de clase
+- Motivaciones adicionales
+- Funcionamiento interno de los hooks
+
+Componentes funcionales vs de clase
+
+Los componentes de clase van en contra de la filosofía React de nunca mutar debido a la existencia del this. El ciclo de vida almacena lógicas combinadas y difíciles de separar.
+
+Motivaciones adicionales
+
+El uso de this, aparte de contraproducente, funciona de forma distinta en JS que en otros lenguajes, se pretende huir de su uso. El uso de Hooks es más parecido al uso inicial propuesto por el equipo de React. React se aprovecha del concepto de closure de Javascript para crear sus hooks. Cada vez que es llamado, useState asigna un valor inicial o actual a su variable, si no retorna la función interna que cambie su estado.
+
+
+Manejo del estado con hooks
+
+- Estado en componentes funcionales
+- El Hook useState
+- El Hook useReducer
+
+Estado en componentes funcionales:
+
+El estado en los componentes funcionales depende de un Hook y no está asociado a this. Un Hook de estado se comporta como una función idempotente, es decir, en sucesivas llamadas devuelve siempre el mismo valor (El estado en sí). Los cambios en el estado dependen de una función arrojada por el propio Hook que actúa cambiando el valor interno. Para gestionar el estado podemos usar useState o useReducer. 
+
+El Hook useState
+
+La variable puede guardar cualquier valor, y podemos crear cuantas nuevas variables de estado necesitemos. Podemos introducir el valor directamente en la función setter o una función que recibe de parámetro de entrada el valor actual de la variable de estado dada. Un componente funcional puede tener cualquier número de estados usando useState y estas variables pueden almacenar cualquier tipo. 
+
+El Hook useReducer
+
+El Hook useReducer almacena un estado en forma de objeto, donde cada clave almacena un estado concreto, más similar al state de componentes de clase. La forma de modificar estos estados es a través de un reducer, al igual que en Redux, e invocando acciones con el método devuelto “dispatch”. 
+
+Ciclo de vieda con hooks
+
+- El Hook de efecto
+- Ciclo de vida y hook de efecto
+- Uso de useLayoutEffect
+
+El Hook de efecto
+
+Ejecuta la función dada cuando se cumple una condición en un array de condiciones, esto es, cuando una de las variables de estado o props en este array cambia. Si devolvemos una función dentro del callback a ejecutar esta funcionará como función de saneamiento, es decir, se ejecutará al desmontar el componente para sanitizar nuestros efectos.
+
+Ciclo de vida y hook de efecto
+
+El hook de efecto puede utilizarse para imitar un componentDidMount, para ello sólo debemos de especificar un array de condiciones vacío. El hook de efecto puede utilizarse para imitar un componentDidUpdate que se ejecute siempre, para ello no especificamos ningún array (Queda undefined).
+
+Uso de useLayoutEffect
+
+Se ejecuta después del render, en vez de síncrono tras las actualizaciones del DOM. Para los casos en los que medimos el DOM, o queremos aplicar una modificación directa sobre la estructura y evitar el “flicker” al usuario tenemos useLayoutEffect. Sólo cambia el momento en el ciclo de vida en el que es llamado.
+
+Construyendo tus hooks
+
+- Aprovechando los Hooks
+- Extrayendo un nuevo Hook
+- Usando un nuevo Hook
+
+Aprovechando los Hooks
+
+Convertir en un hook propio  nos permite tener una colección de Hooks para nuestra aplicación que nos permita compartir lógicas concretas de nuestra aplicación. Todos los hooks empiezan con la palabra "use". 
+
+Extrayendo un nuevo Hook
+
+La capacidad para crear todas las funciones manejadoras de ciclo de vida que queramos nos permite extraer la funcionalidad atómicamente para dar disponibilidad a cualquier otro componente.
+
+Usamos un arrow para acceder al contexto de React. El ciclo de vida referenciado en el interior del closure se unirá al resto de manejadores de ciclo de vida referenciados en el componente donde lo importemos. En el return de nuestros Hooks podremos devolver cualquier número de propiedades de estado o incluso setters y funciones.
+
+
+
+
+
+
