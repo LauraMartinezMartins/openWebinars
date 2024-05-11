@@ -520,3 +520,36 @@ En algunos casos el ascenso del estado es insuficiente para lograr una comunicac
 Soluciones para centralizar
 
 El navegador pone a nuestra disposición soluciones razonables para aplicaciones con una comunicación leve como cookies y localStorage. También es posible encontrar soluciones específicas para la estructura de nuestra app como Redux o Flux
+
+Gestión del estado
+
+- El estado centralizado
+- Patrón Redux
+- Redux con hooks: useReduce
+
+Patron Redux:
+
+Existe una única fuente de verdad llamada store o almacén y todo el estado de la aplicación se encuentra en ella. El estado de las aplicaciones Redux es de sólo lectura y cambiarlo depende de seguir el flujo interno. Los cambios en el estado se realizan con funciones puras que devuelven un nuevo estado de la aplicación. 
+
+Redux con hooks: useReduce
+
+El hook useReducer es una alternativa al hook useState que permite utilizar un reducer para gestionar el estado. Al invocarlo recibe como entrada un estado inicial y una función reductora y devuelve el estado y una función para ejecutar las acciones. El hook useReducer es una alternativa al hook useState. Al invocarlo recibe como entrada un estado inicial y una función reductora y devuelve el estado y una función para ejecutar las acciones.
+
+- Favorece la cascada
+- Mantén los componentes puros
+- Centraliza si es necesario
+
+Favorece la cascada:
+
+Seguir la cascada de props es una forma habitual de evitar que la aplicación tenga un estado descontrolado.
+
+Mantén los componentes puros
+
+Un componente puro es aquel cuya renderización sólo depende de las propiedades. Se basa en el concepto de programación funcional de función pura, aquella función cuyo resultado depende exclusivamente de sus parámetros. La ventaja de los componentes puros es que son puramente deterministas, no introducen efectos secundarios y su renderización es optimizable
+
+El componente sólo se renderiza si el name cambia.
+
+Centraliza si es necesario:
+
+La mayor parte de las veces sabremos que es necesaria alguna estrategia de centralización cuando encontremos comunicación horizontal.
+
