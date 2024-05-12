@@ -960,7 +960,131 @@ Modo concurrente
 Feature experimental, comenzará con React 18 y su adopción será progresiva. Detecta componentes con mayor prioridad para renderizar. Esta prioridad también podrá ser ajustada con unas líneas de código. 
 
 
+# Curso de manejo de estado con Clases y Hooks en REACT
 
 
+Tipos de estado
+
+* Modelo de nuestra app
+* Estado de las peticiones HTTP
+* Estado de sesión (cookies)
+* Estado de UI (input de usuario, estado de componentes) 
+
+¿Qué estado maneja React?
+React controla todo el estado que tiene que ver con la UI o aquel que si bien directamente no tiene que ver con el user interface, al final lo utilizamos para renderizar. React nos permite gestionar todo ese estado de UI y se encarga de hacer los cambios. 
+
+Props vs State 
+
+Si no puede ser recalculado con props y voy a usar en el render, debe de ser State. Si no se usa render, no es State.
+
+Práctica: 
+
+![Captura2](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/e326e5fa-abce-4cf9-9312-f6a2b2c2f859)
 
 
+Clases o componentes funcionales
+
+Ventajas componentes clases: 
+* Sintaxis conocida
+* Navegadores next-gen las clases tienen una pequeña optimización.
+* Admiten herencia
+
+Desventajas componentes funcionales
+* El concepto de Clase como en otros lenguajes, no existe en js.
+* Introducen problemas con los contextos
+* Son más verbose.
+* Dificultades de entendimiento para los programadores juniors.
+
+Ventajas componentes funcionales
+* Sintaxis muy limpia.
+* Van acorde con la filosofía de js.
+* Favorecen la composición en React.
+* No hay problemas con this.
+* Encapsulación a través de closure.
+* Podemos tener funciones puras.
+* No necesitan construirse para devolver un nuevo objeto.
+
+Desventajas componentes funcionales
+
+* No gestionar en versiones inferiores a 16.8.
+* Pensar con enfoque composicion y no herencia
+* Entender bien los closures de js.
+
+Recomendacion: componentes funcionales.
+
+
+Composicion o herencia
+
+Problemas con herencia en js
+
+El concepto herencia esta muy apegado al concepto Clase. En js no existen clases. Ya que el concepto no existe en js y todos los problemas que está resuelve, son resueltos por composición, tiene sentido no usarla.
+
+
+Manejo de estado con Clases 
+
+- ¿Qué es setState?
+- Uso básico de setState
+- Uso de setState con una función
+- Asincronía
+- Operaciones después de setState
+
+¿Qué es setState?
+
+Es una petición a React para que actualice un componente determinado.
+
+Uso básico de setState
+
+Antes de poder hacer una actualización de estado necesitamos definir el estado inicial. Seguidamente podemos proceder a realizar nuestra actualización. El momento más común es después de un evento de usuario.
+
+![kjhliukh](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/faed5892-2ac4-4731-8f6d-ee5eb62b332d)
+
+
+Uso de setState con una función
+
+setState : F(Object -> Object). Internamente react ejecutará la función que le pasemos a setState y generará un nuevo estado con Object.assign.
+
+Asincronía
+
+setState es asíncrono. Quiere decir que no se produce una actualización de estado inmediatamente después de invocar a la función. 
+
+Operaciones después de setState
+
+En ocasiones necesitamos hacer operaciones justo después de actualizar el estado. 
+setState(UpdateFunction/Object, Function)
+setState(UpdateFunction/Object, CallbackFunction) 
+
+Manejo de estado con Hooks
+
+- Uso del setter de useState con una función
+- Asincronía (diferencias con setState)
+- Effects
+- Custom Hooks
+- Testing Hooks 
+
+Uso del setter de useState con una función
+
+Recibimos un valor y hay que devolver un valor. 
+
+Importante: el retorno NO PUEDE ser null o undefined, hay que tener en cuenta el cambio de tipo a la hora de
+refactorizar (de object a any), el tipo de retorno puede ser un objeto si el estado guarda un objeto.
+
+Asincronía
+
+Al igual que setState, setX es asíncrono.
+
+Effects
+
+Un side effect es todo cambio de estado en nuestra aplicación que puede ser escuchado (u observado) desde fuera de la función donde se produce (sin contar su valor de retorno). useEffect nos permite ejecutar side effects en nuestros componentes. Cualquier valor definido en el scope de nuestro componente que se esté usando en nuestro Effect, debe de estar en el array de dependencias. 
+
+Recordando estado
+
+useRef
+Nos permite recordar el estado entre renders.
+
+Custom Hooks
+
+Construir nuestros propios hooks nos van a permitir mover lógica de nuestro componente a funciones reutilizables y componibles. Un hook es solo una función y las funciones se puede componer y reutilizar. 
+
+Testing Hooks
+
+Podemos testear usando nuestro framework de unit test preferido o usando librerias como testing-library. 
