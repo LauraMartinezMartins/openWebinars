@@ -802,4 +802,165 @@ Minimizando el numero de renderizados
 - Usando shouldComponentUpdate
 - Virtualización de listas
 
-  
+El renderizado en React
+
+React mantiene un DOM virtual paralelo al DOM del navegador. Tras cada cambio en el DOM React decide qué renderizar de nuevo, este proceso es llamado reconciliación y es pesado. Para decidir que renderizar se usa  shouldComponentUpdate. Por defecto React.Component de este ciclo de vida siempre devuelve true.
+
+Realiza los siguientes pasos por cada nodo:
+
+1. Llama a shouldComponenteUpdate y mira si devuelve true.
+2. Revisa si hay nodos inferiores cuyo SCU devuelva true.
+3. Compara el nodo en el DOM actual con el nuevo DOM.
+
+
+Usando shouldComponentUpdate
+
+ShouldComponentUpdate es un método que recibe las nuevas propiedades y el estado y devuelve un booleano si indica que el componente debe de ser actualizado. 
+
+Virtualización de listas
+
+La comprobación de listas renderizadas de muchos elementos es una de las tareas más lentas.  Soluciones como paginar el contenido, ya sea explícitamente por páginas o usando scroll infinito. 
+
+Memorizacion: cacheando funciones
+
+- Definición de memoización
+- Uso con hooks
+- Hooks de memorización
+
+Definición de memoización
+
+Es una técnica de optimización que almacena en un caché el resultado de una función a ser devuelto si los parámetros no han cambiado. Si no cambian los parámetros la segunda llamada será casi instantánea. 
+
+Uso con hooks
+
+La memorización implica un proceso por debajo que aumenta la complejidad a la hora de la ejecución. React.memo crea un
+componente memoizado; Si las props no cambian el componente devolverá su valor previo. Consecuencias del uso de React.memo es que tenemos que asegurar que el componente sea puro. 
+
+Hooks de memorización
+
+useMemo()->hook para memorizar funciones que impacten en el rendimiento profundamente.
+useCallback()->crear callbacks para ser pasados a los componentes hijos. 
+
+Code-splitting y tree-shaking
+
+- Tamaño de bundle
+- Estrategias de reducción
+- Reducción por code-spliting
+- Reducción por tree-shaking
+
+  Tamaño de bundle
+
+Nuestro transpilador y nuestro bundler crearán una versión optimizada para el despliegue. Esta versión tendrá un cierto peso, basado en el peso de nuestro código, nuestras dependencias en si han sido minimizadas. El tamaño final es el tamaño de bundle o empaquetado.
+Para poder analizar nuestro bundle y ver la distribución del peso, podemos instalar source-map-explorer.
+
+'''
+
+E:\REACT\openWebinars\mi-app>npm install --save-dev source-map-explorer
+
+added 12 packages, and audited 1602 packages in 8s
+
+259 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (2 moderate, 6 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+E:\REACT\openWebinars\mi-app>
+
+'''
+
+Luego añadir al package.json lo siguiente:
+'''
+"scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+  },
+'''
+
+Luego realizaremos los siguientes comandos: 
+
+E:\REACT\openWebinars\mi-app>npm run build
+
+> mi-app@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+
+Compiled successfully.
+
+File sizes after gzip:
+
+  46.6 kB  build\static\js\main.c9bd7450.js
+  1.77 kB  build\static\js\453.d6579b24.chunk.js
+  513 B    build\static\css\main.f855e6bc.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+
+E:\REACT\openWebinars\mi-app>
+
+
+Y luego npm run analyze
+
+'''
+E:\REACT\openWebinars\mi-app>npm run analyze
+
+> mi-app@0.1.0 analyze
+> source-map-explorer 'build/static/js/*.js'
+
+build/static/js/453.d6579b24.chunk.js
+  Unable to map 176/4512 bytes (3.90%)
+build/static/js/main.c9bd7450.js
+  Unable to map 110/143782 bytes (0.08%)
+
+E:\REACT\openWebinars\mi-app>
+
+'''
+
+Por lo que saldria lo siguiente: 
+![Captura](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/b7fa0dbf-5b65-404c-abdd-2fb3823425d9)
+
+Estrategias de reducción
+
+Reducir el bundle aumenta la velocidad de carga de nuestras web-apps y por tanto incrementa su disponibilidad. Tiempo de espera superior a 2 o 3 segundos sería inaceptable. Evitar usar librerías superfluas o utilizar directamente las funciones necesarias de esas librerías.
+
+Reducción por code-spliting
+
+Corta el bundle en pequeños fragmentos que son cargados siempre que son necesarios, el peso total es el mismo pero el tiempo de carga es menor. 
+
+Reducción por tree-shaking
+
+Es la eliminación de código muerto (No usado) de nuestro código y dependencias. 
+
+Renderizado concurrente
+
+- El renderizado en React
+- Modo concurrente
+
+El renderizado en React
+
+Renderiza de manera sindrona. La renderización de ciertos componentes pesados puede bloquear la interfaz de usuario. Nos asegura un cierto orden de ejecución y número máximo de ejecuciones de ciclos de vida. 
+
+Modo concurrente
+
+Feature experimental, comenzará con React 18 y su adopción será progresiva. Detecta componentes con mayor prioridad para renderizar. Esta prioridad también podrá ser ajustada con unas líneas de código. 
+
+
+
+
+
+
