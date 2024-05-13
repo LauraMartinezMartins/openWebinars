@@ -1067,10 +1067,13 @@ Recibimos un valor y hay que devolver un valor.
 
 Importante: el retorno NO PUEDE ser null o undefined, hay que tener en cuenta el cambio de tipo a la hora de
 refactorizar (de object a any), el tipo de retorno puede ser un objeto si el estado guarda un objeto.
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/061a2183-ac54-4c72-ba79-2f577a6fdbaf)
 
 Asincronía
 
 Al igual que setState, setX es asíncrono.
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/f12d4b0b-5f1f-4e71-aaf3-009a2e9e3124)
+
 
 Effects
 
@@ -1080,6 +1083,8 @@ Recordando estado
 
 useRef
 Nos permite recordar el estado entre renders.
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/bd30b56a-cd8f-425e-8684-5fde7a1e3e95)
+
 
 Custom Hooks
 
@@ -1088,3 +1093,128 @@ Construir nuestros propios hooks nos van a permitir mover lógica de nuestro com
 Testing Hooks
 
 Podemos testear usando nuestro framework de unit test preferido o usando librerias como testing-library. 
+
+#  Curso de manejo de estado y data fetching con Reducers y Thunks en React
+
+Aquitectura Flux
+
+¿Que es?
+
+Arquitectura usada por Facebook. Redux es implementación de Flux. Se puede obtener los beneficios de la arquitectura Flux sin usar Redux. 
+
+Beneficios Flux
+
+* Vistas Deterministas
+* Reproducción de estado Determinista
+
+  Es facil aislar elementos no deterministas. 
+
+Reducters en REACT
+
+- Arquitectura Flux
+- Reducers
+- useState vs useReducer
+- Actions
+- Action creators
+- Selectors
+- Testing reducers
+- Context
+
+Arquitectura Flux
+
+Flux patron manejo de datos.  Define un flujo unidireccional para la UI.  
+
+Reducers
+Nos permite aplicar una función a cada uno de los elementos de una lista con el objetivo de acumular un valor (reducir una lista a un valor). En Flux en lugar de aplicar el reducer sobre una lista, se aplica sobre un stream de actions.
+
+useState vs useReducer
+
+Desventajas useState: 
+1. Complejidad
+2. No fácil solución cuando tenemos que setear muchas variables al mismo tiempo.
+3. Difícil separar mi lógica de la actualización del estado
+
+useReducter, podemos tenerla separada de la aplicación. 
+
+Actions
+
+Es cualquier evento que se produzca en nuestra aplicación y genere un cambio en nuestro estado. 
+
+Action creators
+Crea acciones. 
+
+Selectors
+Evita mezclar nuestra lógica de vista con el cómo se representan los datos. Es una función que toma un estado y devuelve una visualización del mismo. 
+
+Testing Reducers
+
+Como los reducers son simples funciones puras en Javascript, es muy fácil realizar tests unitarios sobre ellos. 
+
+Context
+
+Forma de poder compartir una prop entre componentes sin necesidad de tener que ir pasándola en cascada a todos nuestros componentes. Hay que tener precaución con este patrón, ya que si todos nuestros componentes son stateful, podemos acabar con una aplicación difícil de mantener y reutilizar. 
+
+React.memo y useCallback 
+
+React.memo en conjunción con useCallback usados en el sitio adecuado puede aportar una mejora en el rendimiento de nuestra aplicación. Recibe un componente unas dependencias y devuelve un componente memorizado. Si props no cambia, el componente no ser re-renderizará. 
+
+Ejercicio: 
+
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/ba7939e1-a040-4591-9df5-c3abeee7b8fb)
+
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/0dced8c3-1ea7-41df-b3d1-1adbb2cb3b26)
+
+Data Fetching en React 
+
+- ¿A qué nos referimos con Data Fetching?
+- Data Fetching en useEffect
+- Gestión de success, error y loading
+- Custom hook para Data Fetching
+- Data Fetching con reducers
+
+¿A qué nos referimos con Data Fetching?
+
+Traer datos de fuente externa como servidor. Para lanzar una función con side-effects necesitamos hacerlo dentro de un useEffect, pero esto solo ocurre cuando la función en cuestión está relacionada de alguna forma con el ciclo de vida del componente. 
+
+
+Gestión de success, error y loading
+
+En nuestras aplicaciones no solo queremos controlar cuando todo vaya bien, si no cuando el proceso se esté ejecutando o cuando ocurra un error. 
+
+Custom hook para Data Fetching
+
+En una aplicación real vamos a querer realizar muchas peticiones a diferentes servicios, por lo que es necesario disponer de una abstracción. 
+
+Data Fetching con reducers
+
+Un reducer aparte de separarnos la lógica de estado de nuestros componentes, nos permite aunar en una única función todos los cambios de estado necesarios dada un acción. 
+
+Con Data Fetching donde cobran mucho sentido, ya que por lo general vamos a querer realizar varios cambios en el estado depende de la acción.
+
+Thunks
+
+- ¿Qué es un Thunk?
+- Thunks con Reducers
+- Undo and Redo (demo)
+
+¿Qué es un Thunk?
+
+Función devuelta por otra función. 
+
+Thunks con Reducers 
+
+Los Thunks son usados principalmente para hacer middlewares
+
+
+React Hooks
+
+(Hago capturas debido al uso de dependencias añadidas posteriormente en el proyecto, ya que este fue creado mediante una herramienta en linea y prefiero hacer el uso de las dependencias)
+
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/a5f2d461-d5c8-4942-a113-481536133484)
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/4242e38c-2d88-4ea4-ab0e-b70176caa64d)
+![image](https://github.com/LauraMartinezMartins/openWebinars/assets/153906212/cef0fa44-47c9-443a-91e7-2a3ed131a7a8)
+
+
+
+
+
